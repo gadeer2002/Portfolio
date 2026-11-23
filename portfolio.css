@@ -1,0 +1,369 @@
+
+:root {
+    --primary: #ab47bc;
+    --bg-dark: #0f0f1a;
+    --bg-card: #1a1a2e;
+    --text: #e0e0e0;
+    --radius: 12px;
+    --transition: all 0.3s ease;
+    --space: 20px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 50px;
+    background-color: rgba(15, 15, 26, 0.95);
+    border-bottom: 1px solid #2a2a40;
+    z-index: 100;
+}
+
+.brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-link {
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px var(--space) 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-greeting,
+.hero-title,
+.hero-subtitle,
+.hero-text,
+.hero-buttons {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.hero-greeting {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin: 0;
+    animation-delay: 0.1s;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    animation-delay: 0.3s;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    animation-delay: 0.6s;
+}
+
+.hero-text {
+    animation-delay: 0.9s;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    animation-delay: 1.2s;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+
+.section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px var(--space);
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    color: #b0b0c0;
+    margin-bottom: 40px;
+}
+
+
+.skills-section {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.projects-section {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.contact-section {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.skill-card {
+    background-color: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: var(--radius);
+    border: 1px solid #2a2a40;
+    transition: var(--transition);
+}
+
+.skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 30px rgba(171, 71, 188, 0.35);
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+}
+
+.skill-card h3 {
+    margin-bottom: 5px;
+}
+
+.skill-card p {
+    margin: 0;
+    color: #b0b0c0;
+}
+
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid #2a2a40;
+}
+
+.project-image {
+    height: 200px;
+    transition: transform 0.4s;
+}
+
+.image-one {
+    background: linear-gradient(135deg, #880e4f, #ec407a);
+}
+
+.image-two {
+    background: linear-gradient(135deg, #006064, #26c6da);
+}
+
+.image-three {
+    background: linear-gradient(135deg, #e65100, #ffa726);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 15px 20px;
+}
+
+.project-info h3 {
+    margin-bottom: 5px;
+}
+
+.project-info p {
+    margin: 0;
+    color: #b0b0c0;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: var(--space);
+    background-color: rgba(15, 15, 26, 0.88);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-links a {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid var(--primary);
+    border-radius: 30px;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.contact-links a:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.site-footer {
+    padding: 25px var(--space);
+    text-align: center;
+    background-color: #0a0a12;
+    border-top: 1px solid #2a2a40;
+    color: #8a8aa0;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 0.9rem;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
